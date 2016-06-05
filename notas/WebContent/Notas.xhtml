@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:view contentType="text/html"/>
+	
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro Notas</title>
+	<h:outputFormat library="css" name ="grid.css"/>
+	<h:outputFormat library="css" name="style.css"/>
+</head>
+
+<h:body>
+<h2> Cadastro de Notas</h2>
+
+	<!-- A div abaixo sera responsavel pelo campo de nome da nota-->
+		<div>
+			<h:outputText value="Nome da Nota:  " for="nome"/>
+			<h:inputText id="nome" size="52" value="#{notasMB.nota.nome}"/>
+		</div>
+	
+	<!-- A div abaixo é responsavel pelo compato de texto da nota  -->
+		<div>
+			<h:inputTextarea cols="70" rows="15" value="#{notasMB.nota.texto}"/>
+		</div>
+	
+	<!-- Esta div e responsavel pelos botoes  -->
+		<div>
+			<h:commandButton value="Salvar nota" action="#{notasMB.salvarNota}"/>
+		</div>
+	
+	<hr></hr>
+	
+	<!-- Tabela com as notas -->
+	<div>
+		<h2>Listagem de Notas</h2>
+			<h:form id="tabelaNotas">
+				<h:dataTable value="#{notasMB.listaNotas}" var="listaNotas"
+					styleClass="dados" rowClasses="impar,par" >
+					<h:column>
+						<f:facet name="header"><h:outputText value="Nome" /></f:facet>
+						#{listaNotas.nome}
+				 	</h:column>
+				 	
+				 	<h:column>
+						<f:facet name="header"><h:outputText value="Data e Hora da Postagem"/></f:facet>
+							<h:outputText value="#{notasMB.nota.dataHora}">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:outputText>
+					</h:column>
+				</h:dataTable>
+			</h:form>	
+	</div>	
+		
+	
+	
+	
+	
+	
+	
+</h:body>
+</html>

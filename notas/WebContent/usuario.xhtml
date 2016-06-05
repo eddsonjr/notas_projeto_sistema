@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<f:view contentType="text/html"/>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Notas-Usuário</title>
+</head>
+<h:body>
+	<h:form id="usuario">
+		<fieldset>
+			<legend>Cadastrar Novo Usuário</legend>
+				<h:panelGrid columns="2">
+				<h:outputText value="Nome:" for="nome"/>
+				<h:inputText id="nome" value="#{usuarioMB.usuario.nome}"/>
+				<h:outputText value="E-mail:" for="email"/>
+				<h:inputText id="email" value="#{usuarioMB.usuario.email}"/>
+				<h:outputText value="Senha:" for="senha"/>
+				<h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}"/>
+				<h:commandButton value="Salvar usuário" action="#{usuarioMB.salvarUsuario}"/>
+				</h:panelGrid>
+		</fieldset>
+	</h:form>	
+</h:body>
+</html>
